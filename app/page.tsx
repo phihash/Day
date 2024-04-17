@@ -82,7 +82,7 @@ async function getBirthdaysData(month: number, day: number) {
   }
 }
 
-export const getDateData = async () => {
+const getDateData = async () => {
   const currentDate = new Date();
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth() + 1;

@@ -9,7 +9,6 @@ interface HomeProps {
   rokuyou: string;
 }
 
-
 // async function getWikiData() {
 //   try {
 //     const response = await axios.get('https://ja.wikipedia.org/w/api.php', {
@@ -100,12 +99,11 @@ const getDateData = async () => {
   };
 };
 
-export default async function Home() {
+const HomeTitle = async () => {
   const { props } = await getDateData();
 
   return (
-    <main className="h-screen">
-      <div className="h-1/2 text-neutral-100 bg-yellow-500 flex flex-col justify-center items-center gap-2">
+<div className="h-1/2 text-neutral-100 bg-yellow-500 flex flex-col justify-center items-center gap-2">
         <h1 className={`text-4xl font-bold ${lato.className}`}>
           {props.year}/{props.month}/{props.day}
         </h1>
@@ -113,9 +111,22 @@ export default async function Home() {
           {props.rokuyou}
         </p>
       </div>
+  )
+}
+
+export default function Home () {
+
+  return (
+    <>
+    <main className="h-screen">
+    <HomeTitle />
+
       <div className="h-1/2">
         {/* 下半分のコンテンツをここに追加 */}
       </div>
     </main>
+    </>
+
   );
 }
+

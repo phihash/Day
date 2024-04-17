@@ -114,7 +114,7 @@ const HomeTitle = async () => {
   )
 }
 
-export  const  Home =  () => {
+export default  function Home   () {
 
 
   return (
@@ -131,4 +131,3 @@ export  const  Home =  () => {
   );
 }
 
-export default Home;

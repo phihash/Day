@@ -2,6 +2,14 @@ import axios from 'axios';
 import { calculateRokuyou } from "../libs/calculateRokuyou"
 import { noto_sans_jp,geo, arvo ,lato, lexend, potta_One } from "../font";
 
+interface HomeProps {
+  year: number;
+  month: number;
+  day: number;
+  rokuyou: string;
+}
+
+
 async function getWikiData() {
   try {
     const response = await axios.get('https://ja.wikipedia.org/w/api.php', {
@@ -74,26 +82,34 @@ async function getBirthdaysData(month: number, day: number) {
   }
 }
 
-export default async function Home() {
-  const wikiData = await getWikiData();
+export const getDateData = async () => {
+  const currentDate = new Date();
+  const year = currentDate.getFullYear();
+  const month = currentDate.getMonth() + 1;
+  const day = currentDate.getDate();
 
-    // 現在の日付を取得
-    const currentDate = new Date();
-    const year = currentDate.getFullYear();
-    const month = currentDate.getMonth() + 1;
-    const day = currentDate.getDate();
-    const birthdays = await getBirthdaysData(month, day);
-    const rokuyou = calculateRokuyou(year, month, day);
+  const rokuyou = calculateRokuyou(year, month, day);
 
+  return {
+    props: {
+      year,
+      month,
+      day,
+      rokuyou,
+    },
+  };
+};
+
+export default async function Home({ year, month, day, rokuyou }: HomeProps) {
+  const datadata  = await getDateData();
   return (
     <main className="h-screen">
-      <div className="h-1/2 text-neutral-100 bg-yellow-500 flex flex-col items-center justify-center gap-6">
+      <div className="h-1/2 text-neutral-100 bg-yellow-500 flex flex-col justify-center items-center gap-2">
         <h1 className={`text-4xl font-bold ${lato.className}`}>
-          {year}/{month}/{day}
-        </h1>
-        <h2 className={`text-2xl ${potta_One.className} tracking-widest`}>
-{rokuyou}
-        </h2>
+            {datadata.props.year}/{datadata.props.month}/{datadata.props.day}
+          </h1>
+          <p className={`text-2xl ${potta_One.className} tracking-widest`}>
+            {datadata.props.rokuyou}</p>
       </div>
       <div className="h-1/2">
         {/* 下半分のコンテンツをここに追加 */}

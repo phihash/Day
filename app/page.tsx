@@ -100,7 +100,7 @@ const getDateData = async () => {
   };
 };
 
-export default async function Home() {
+export  const  Home =  async () => {
   const { props } = await getDateData();
 
   return (

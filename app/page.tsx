@@ -9,7 +9,6 @@ interface HomeProps {
   rokuyou: string;
 }
 
-
 // async function getWikiData() {
 //   try {
 //     const response = await axios.get('https://ja.wikipedia.org/w/api.php', {

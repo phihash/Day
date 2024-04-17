@@ -1,8 +1,20 @@
-import {Geo, Arvo ,Inter, Roboto_Mono , Fredoka ,Noto_Sans_JP ,M_PLUS_1p ,Kiwi_Maru ,Zen_Maru_Gothic , Lexend} from 'next/font/google'
+import {Geo, Potta_One , Arvo ,Lato ,Inter, Roboto_Mono , Fredoka ,Noto_Sans_JP ,M_PLUS_1p ,Kiwi_Maru ,Zen_Maru_Gothic , Lexend} from 'next/font/google'
 
 export const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
+})
+
+export const lato = Lato({
+  subsets: ['latin'],
+  weight:["700"],
+  display: 'swap',
+})
+
+export const potta_One = Potta_One({
+  subsets: ['latin'],
+  display: 'swap',
+  weight:["400"]
 })
 
 export const geo = Geo({

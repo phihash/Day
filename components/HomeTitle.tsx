@@ -1,4 +1,4 @@
-
+"use client"
 import { calculateRokuyou } from "../libs/calculateRokuyou"
 
 import {lato, potta_One } from "../font";

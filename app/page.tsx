@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { noto_sans_jp,geo, arvo ,zen_maru_gothic, lexend } from "../font";
+import { calculateRokuyou } from "../libs/calculateRokuyou"
+import { noto_sans_jp,geo, arvo ,lato, lexend, potta_One } from "../font";
 
 async function getWikiData() {
   try {
@@ -82,14 +83,21 @@ export default async function Home() {
     const month = currentDate.getMonth() + 1;
     const day = currentDate.getDate();
     const birthdays = await getBirthdaysData(month, day);
-
+    const rokuyou = calculateRokuyou(year, month, day);
 
   return (
-    <main className="flex h-1/2 flex-col text-neutral-100 items-center justify-between p-24 pt-48 bg-yellow-500">
-    <h1 className={`text-4xl font-bold ${arvo.className}`}>
-    {year}/{month}/{day}
-    </h1>
-
-  </main>
+    <main className="h-screen">
+      <div className="h-1/2 text-neutral-100 bg-yellow-500 flex flex-col items-center justify-center gap-6">
+        <h1 className={`text-4xl font-bold ${lato.className}`}>
+          {year}/{month}/{day}
+        </h1>
+        <h2 className={`text-2xl ${potta_One.className} tracking-widest`}>
+{rokuyou}
+        </h2>
+      </div>
+      <div className="h-1/2">
+        {/* 下半分のコンテンツをここに追加 */}
+      </div>
+    </main>
   );
 }

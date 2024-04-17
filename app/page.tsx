@@ -99,12 +99,11 @@ const getDateData = async () => {
   };
 };
 
-export  const  Home =  async () => {
+const HomeTitle = async () => {
   const { props } = await getDateData();
 
   return (
-    <main className="h-screen">
-      <div className="h-1/2 text-neutral-100 bg-yellow-500 flex flex-col justify-center items-center gap-2">
+<div className="h-1/2 text-neutral-100 bg-yellow-500 flex flex-col justify-center items-center gap-2">
         <h1 className={`text-4xl font-bold ${lato.className}`}>
           {props.year}/{props.month}/{props.day}
         </h1>
@@ -112,9 +111,24 @@ export  const  Home =  async () => {
           {props.rokuyou}
         </p>
       </div>
+  )
+}
+
+export  const  Home =  () => {
+
+
+  return (
+    <>
+    <main className="h-screen">
+    <HomeTitle />
+
       <div className="h-1/2">
         {/* 下半分のコンテンツをここに追加 */}
       </div>
     </main>
+    </>
+
   );
 }
+
+export default Home;

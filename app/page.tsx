@@ -1,14 +1,8 @@
 "use client"
 import { HomeTitle } from '@/components/HomeTitle';
 import { useState } from 'react';
-import axios from 'axios';
+import { useSwipeable } from 'react-swipeable';
 
-interface HomeProps {
-  year: number;
-  month: number;
-  day: number;
-  rokuyou: string;
-}
 
 export default function Home () {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -28,9 +22,14 @@ export default function Home () {
       return newDate;
     });
   };
+
+  const handlers = useSwipeable({
+    onSwipedLeft: () => handleSwipeLeft(),
+    onSwipedRight: () => handleSwipeRight(),
+  });
   return (
     <>
-    <main className="h-screen">
+    <main {...handlers}  className="h-screen">
     <HomeTitle
             date={currentDate}
             onSwipeLeft={handleSwipeLeft}
@@ -38,7 +37,6 @@ export default function Home () {
     />
 
       <div className="h-1/2">
-        {/* 下半分のコンテンツをここに追加 */}
       </div>
     </main>
     </>

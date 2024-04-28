@@ -1,6 +1,5 @@
 import { noto_sans_jp } from "../font";
 
-
 function NotFoundPage() {
   return (
     <div className="bg-yellow-50 h-screen flex items-center justify-center p-8">

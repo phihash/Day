@@ -4,14 +4,14 @@ import { Metadata } from "next";
 export async function generateMetadata({ params }: { params: { year: string } }): Promise<Metadata> {
   const { year } = params;
   return {
-    metadataBase: new URL("https://day-rosy.vercel.app/"),
+    metadataBase: new URL(`https://day-rosy.vercel.app/person/${year}`),
     title: `${year}年`,
     description: `${year}年のページ`,
     openGraph: {
       title: `${year}年`,
     description: `${year}年のページ`,
-      url: "https://day-rosy.vercel.app/",
-      siteName: `${year}年`,
+      url: `https://day-rosy.vercel.app/person/${year}`,
+      siteName: `${year}年の人物`,
       locale: "ja_JP",
       type: "website",
       images: [
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: { params: { year: string } })
       {
         rel: "apple-touch-icon",
         sizes: "180x180",
-        url: "/public/icon.png",
+        url: "../../../public/icon.png",
       },
     ],
   };
@@ -37,13 +37,9 @@ export async function generateMetadata({ params }: { params: { year: string } })
 
 const YearPage = ({ params }: { params: {year :string} }) => {
   const { year } = params;
-  console.log(params);
   return (
-    <div className="bg-yellow-400 h-screen text-xl text-white px-3">
-      <div
-        className={`pt-12 leading-loose pb-28 font-semibold ${noto_sans_jp.className} `}
-      />
-      {year}
+    <div className="bg-yellow-400 h-screen text-3xl text-white px-3">
+      {year}年の人物
     </div>
   );
 }

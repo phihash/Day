@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "今日は何の日",
-  description: "今日の日を知るサイト",
+  title: "Year",
+  description: "Year",
 };
 
 export default function RootLayout({

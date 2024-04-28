@@ -1,5 +1,7 @@
 "use client"
-import {lato, potta_One } from "../font";
+import {lato} from "../font";
+import { Button } from "../components/Button";
+
 
 export const HomeTitle :React.FC<HomeTitleProps> =  ({date}) => {
 
@@ -8,6 +10,7 @@ export const HomeTitle :React.FC<HomeTitleProps> =  ({date}) => {
         <h1 className={`text-4xl font-bold ${lato.className}`}>
           {String(date)}年
         </h1>
+        <Button />
       </div>
   )
 }

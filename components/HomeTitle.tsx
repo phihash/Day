@@ -1,6 +1,7 @@
 "use client"
 import {lato} from "../font";
 import { Button } from "../components/Button";
+import Link from "next/link";
 
 
 export const HomeTitle :React.FC<HomeTitleProps> =  ({date}) => {
@@ -10,7 +11,9 @@ export const HomeTitle :React.FC<HomeTitleProps> =  ({date}) => {
         <h1 className={`text-4xl font-bold ${lato.className}`}>
           {String(date)}年
         </h1>
+        <Link href={`/person/${date}`}>
         <Button />
+        </Link>
       </div>
   )
 }

@@ -3,6 +3,7 @@ import { HomeTitle } from "@/components/HomeTitle";
 import { useState } from "react";
 import { useSwipeable } from "react-swipeable";
 
+
 export default function Home() {
   const MAX_YEAR = 2024;
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());

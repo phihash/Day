@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import DOMPurify from "isomorphic-dompurify";
 import { client } from "@/libs/client";
-import { noto_sans_jp ,zen_maru_gothic} from "@/font";
+import { noto_sans_jp, zen_maru_gothic } from "@/font";
 
 export async function generateMetadata({
   params,
@@ -40,7 +40,7 @@ export async function generateMetadata({
   };
 }
 
-async function YearPage  ({ params }: { params: { year: string } })  {
+async function YearPage({ params }: { params: { year: string } }) {
   const { year } = params;
   const review = await getContent(year);
   const sanitizedContent = DOMPurify.sanitize(review.marriage);
@@ -53,15 +53,14 @@ async function YearPage  ({ params }: { params: { year: string } })  {
       />
     </div>
   );
-};
+}
 
 async function getContent(year: string) {
   try {
-    const content = await client
-    .get({
-      endpoint: 'year',
+    const content = await client.get({
+      endpoint: "year",
       contentId: year,
-    })
+    });
     console.log("Fetched content", content);
     return content;
   } catch (error) {

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "format": "prettier --write 'app/**/*.tsx'",
+    "format": "prettier --write  **/*.{ts,tsx}  ",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

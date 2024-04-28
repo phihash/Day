@@ -1,5 +1,5 @@
 "use client";
-import  HomeTitle  from "@/components/HomeTitle";
+import HomeTitle from "@/components/HomeTitle";
 import { useState } from "react";
 import { useSwipeable } from "react-swipeable";
 

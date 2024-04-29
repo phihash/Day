@@ -1,7 +1,7 @@
 "use client";
-import { IoPerson } from "react-icons/io5";
 import { ReactNode } from "react";
-import { FaAngellist } from "react-icons/fa";
+import {  zen_maru_gothic } from "@/font";
+
 
 interface ButtonProps {
   name: string;
@@ -9,10 +9,14 @@ interface ButtonProps {
 }
 export const Button = ({ name, icon }: ButtonProps) => {
   return (
-    <div className="">
-      <button className={`text-3xl  p-6 border rounded-xl`}>
+    <div className={`${zen_maru_gothic.className} hover:opacity-75 active:opacity-60`}>
+      <button className={`py-4 px-8 border rounded-xl mx-auto`}>
+        <div className="text-3xl block w-max mx-auto my-2">
         {icon}
+        </div>
+        <div className="text-xl">
         {name}
+        </div>
       </button>
     </div>
   );

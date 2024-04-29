@@ -4,6 +4,8 @@ import { Button } from "../components/Button";
 import Link from "next/link";
 import { IoPerson } from "react-icons/io5";
 import { FaAngellist } from "react-icons/fa";
+import { IoMdMusicalNotes } from "react-icons/io";
+import { GiBigDiamondRing } from "react-icons/gi";
 
 export default function HomeTitle({ date }: HomeTitleProps) {
   return (
@@ -15,7 +17,10 @@ export default function HomeTitle({ date }: HomeTitleProps) {
         <Button name="人物" icon={<IoPerson />} />
       </Link>
       <Link href={`/marriage/${date}`}>
-        <Button name="結婚" icon={<FaAngellist />} />
+        <Button name="結婚" icon={<GiBigDiamondRing />} />
+      </Link>
+      <Link href={`/music/${date}`}>
+        <Button name="音楽" icon={<IoMdMusicalNotes />} />
       </Link>
     </div>
   );
